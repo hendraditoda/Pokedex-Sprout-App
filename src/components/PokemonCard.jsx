@@ -1,15 +1,18 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const PokemonCard = ({ name, id }) => {
+const PokemonCard = ({ pokemon }) => {
+  // console.log(pokemon);
   return (
-    <div className="pokemon-card">
-      <img
-        src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
-        alt={name}
-        className="pokemon-image"
-      />
-      <h3 className="pokemon-name">{name}</h3>
-    </div>
+    <Link
+      to={`/pokemon/${pokemon.id}`}
+      className="pokemon-card"
+      style={{ backgroundColor: pokemon.color }}
+    >
+      <img src={pokemon.image} alt={pokemon.name} />
+      <h3>{pokemon.name}</h3>
+      <h3>{pokemon.types}</h3>
+    </Link>
   );
 };
 
